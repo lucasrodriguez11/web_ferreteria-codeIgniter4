@@ -120,17 +120,30 @@
                     $("btnIngresar").prop("disabled",true);
                     $.ajax({
                         type:"POST",
-                        url:"<?php echo base_url();?>/Sesion",
+                        url:"<?php echo base_url();?>Login",
                         data:$("#form_inicioSesion").serialize(),
                         dataType:"json", //espero un json como respuesta
                         success:function(datos_esperados){
                             $("#mensaje").empty();//quito cualquier mensaje previamente mostrado
-
+                            $("#mensaje").removeClass();//remuevo la clase css
+                            $("#mensaje").addClass(datos_esperados.clase_css);
+                            //clases_css sera la respuesta enviada por el controlador
+                            $("#mensaje").append(datos_esperados.mensaje);
+                            //mensaje que sera la respuesta enviada por el controlador
+                            $("#mensaje").show();//muestro el mensaje
+                            if(datos_esperados.respuesta ==1){
+                                //respuesta sera la respuesta enviada por el controlador 
+                                //si la respuesta es 1 como succes que nos diriga a la pagina de inicio
+                                // ahora ponemos una función en JavaScript que carga una nueva URL en el navegador y reemplaza la entrada actual en el historial del navegador, lo que significa que el usuario no puede volver a la página anterior utilizando el botón de retroceso del navegador.
+                                window.location.replace("<?php echo base_url();?>Bienvenido");
+                            }
                         }
+                       
                     })
                 }
 
             });
+            
     </script>
   </body>
 </html>

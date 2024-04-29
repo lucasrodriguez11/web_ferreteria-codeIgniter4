@@ -6,4 +6,5 @@ use CodeIgniter\Router\RouteCollection;
  * @var RouteCollection $routes
  */
 $routes->get('/', 'Login::index');
-$routes->post('/Sesion''Login::Validar_Usuario');
+$routes->post('/Login','Login::Validar_Usuario');
+$routes->post('/Bienvenido','Home::index');

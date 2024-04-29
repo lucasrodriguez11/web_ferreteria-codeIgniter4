@@ -92,7 +92,7 @@
         <!-- page content -->
           <!-- aca va el contenido  -->
         <div class="right_col" role="main">
-    <div class="div">
+         <div class="div">
 
         <!-- contenido es la variable tipo array que tomara el valor que se le asigne en los controladores y mostrara el valor de esa variable -->
         <?php echo view($contenido); ?>
